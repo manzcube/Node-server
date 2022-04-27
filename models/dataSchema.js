@@ -1,13 +1,14 @@
 
-import { Schema, model } from 'mongoose';
+const mongoose = require('mongoose')
 
-const dataSchema = new Schema(
-    {
-        body: String,
+const dataSchema = mongoose.Schema({
+        text: {
+            type: String,
+            required: [true, 'Please add a text value']
+        }
     },
-    {
-        timestamps: true
-    }
+    { timestamps: true }
 )
 
-const Data = model('data', dataSchema)
+module.exports = mongoose.model('data', dataSchema)
+
